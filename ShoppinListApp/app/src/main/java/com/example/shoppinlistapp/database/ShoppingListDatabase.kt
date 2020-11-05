@@ -1,9 +1,11 @@
-package com.example.shoppinlistapp
+package com.example.shoppinlistapp.database
 
 import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import com.example.shoppinlistapp.model.Product
+import com.example.shoppinlistapp.dao.ProductDao
 
 @Database(entities = [Product::class], version = 1, exportSchema = false)
 abstract class ShoppingListRoomDatabase : RoomDatabase() {
@@ -24,7 +26,8 @@ abstract class ShoppingListRoomDatabase : RoomDatabase() {
                         shoppingListRoomDatabaseInstance = Room.databaseBuilder(
                             context.applicationContext,
                             ShoppingListRoomDatabase::class.java,
-                            DATABASE_NAME).build()
+                            DATABASE_NAME
+                        ).build()
                     }
                 }
             }

@@ -1,4 +1,4 @@
-package com.example.shoppinlistapp
+package com.example.shoppinlistapp.ui
 
 import android.annotation.SuppressLint
 import android.app.AlertDialog
@@ -8,14 +8,15 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.shoppinlistapp.R
+import com.example.shoppinlistapp.model.Product
+import com.example.shoppinlistapp.repository.ProductRepository
 import kotlinx.android.synthetic.main.fragment_shopping_list.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -31,7 +32,8 @@ class ShoppingListFragment : Fragment() {
     private val mainScope = CoroutineScope(Dispatchers.Main)
 
     private val products = arrayListOf<Product>()
-    private val productAdapter = ProductAdapter(products)
+    private val productAdapter =
+        ProductAdapter(products)
 
     override fun onCreateView(
             inflater: LayoutInflater, container: ViewGroup?,
@@ -43,7 +45,10 @@ class ShoppingListFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        productRepository = ProductRepository(requireContext())
+        productRepository =
+            ProductRepository(
+                requireContext()
+            )
         getShoppingListFromDatabase()
 
         initRv()

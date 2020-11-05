@@ -1,6 +1,9 @@
-package com.example.shoppinlistapp
+package com.example.shoppinlistapp.repository
 
 import android.content.Context
+import com.example.shoppinlistapp.dao.ProductDao
+import com.example.shoppinlistapp.database.ShoppingListRoomDatabase
+import com.example.shoppinlistapp.model.Product
 
 class ProductRepository(context: Context) {
 

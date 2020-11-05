@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.item_product.view.*
 
-abstract class ProductAdapter(private val products: List<Product>) :
+class ProductAdapter(private val products: List<Product>) :
     RecyclerView.Adapter<ProductAdapter.ViewHolder>() {
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {

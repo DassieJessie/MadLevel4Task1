@@ -18,6 +18,8 @@ import kotlinx.android.synthetic.main.fragment_shopping_list.*
  */
 class ShoppingListFragment : Fragment() {
 
+    private lateinit var productRepository: ProductRepository
+
     private val products = arrayListOf<Product>()
     private val productAdapter = ProductAdapter(products)
 
@@ -31,6 +33,7 @@ class ShoppingListFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        productRepository = ProductRepository(requireContext())
 
         initRv()
     }
